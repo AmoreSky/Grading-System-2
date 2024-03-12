@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <!-- <a href="Bootstrap/bootstrap.css"></a> -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    </head>
+    <body style="background-image: url(./Screenshot_20240214-092646.png); background-size: cover; text-align: center;">
+        <div class="mx-auto mt- px-5 pb-5 pt-5 px-5 py-5 w-50 shadow-lg " style="background-color: gray; margin-top: 200px;">
+            <h1 class="mb-3 fw-b">GRADING SYSTEM</h1>
+            <input type="text" id="userScore" class="form-control mb-3 w-50 mx-auto border border-light-subtle" placeholder="Input your score here">
+            <button class="btn btn-primary btn-lg" onclick="checkGade()">Check Grade</button>
+            <div id="display" class="fw-bold mt-3 fs-5"></div>
+        </div>
+        <script>
+            function checkGade() {
+                var Exellent = new Audio("applause.wav")
+                var invalid = new Audio("delete.mp3")
+                var fail = new Audio("empty brain.mp3")
+                var pass = new Audio("ye.mp3")
+                var credit = new Audio("whine.mp3")
+                var vgood = new Audio("wow.mp3")
+                // alert("yo")
+                // let score = userScore.value
+                let score = userScore.value
+                // alert(score)
+                if(score == "") {
+                //  alert("Kinldy input your Score")
+                display.innerHTML = "Kinldy input your Score"
+                credit.play()
+                }
+                else if (score >= 0 && score < 40) {
+                    display.innerHTML = "Fail"
+                    display.style.color = "Red"
+                    fail.play()
+                    
+                }
+                else if (score >= 40 && score < 45) {
+                    display.innerHTML = "Pass"
+                    display.style.color = "Yellow"
+                    pass.play()
+                }
+                else if (score >= 45 && score < 50) {
+                    display.innerHTML = "Credit"
+                    display.style.color = "Indigo"
+                    credit.play()
+                }
+                else if (score >= 50 && score < 60) {
+                    display.innerHTML = "Good"
+                    display.style.color = "cyan"
+                    Exellent.play()
+                }
+                else if (score >= 60 && score < 70) {
+                    display.innerHTML = "Very Good"
+                    display.style.color = "Blue"
+                    Exellent.play()
+                }
+                else if (score >= 70 && score <= 100) {
+                    display.innerHTML = "Exellent"
+                    display.style.color = "Green"
+                    vgood.play()
+                }
+                else if(score < 0 || score > 100){
+                    display.innerHTML = "INVALID"
+                    display.style.color = "Orange"
+                    invalid.play()
+                }
+                else if(score = " ") {
+                    display.innerHTML = "Kindly input a number"
+                    invalid.play()
+                }
+            }
+        </script>
+    </body>
+</html>
